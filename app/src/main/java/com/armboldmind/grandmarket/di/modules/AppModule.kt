@@ -2,6 +2,7 @@ package com.armboldmind.grandmarket.di.modules
 
 import android.app.Application
 import android.content.Context
+import com.armboldmind.grandmarket.shared.managers.PreferencesManager
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -12,5 +13,11 @@ class AppModule(private val application: Application) {
     @Singleton
     fun provideContext(): Context {
         return application
+    }
+
+    @Provides
+    @Singleton
+    fun providePreferences(): PreferencesManager {
+        return PreferencesManager(application)
     }
 }

@@ -30,7 +30,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity(), IBaseView {
     protected abstract val inflate: (LayoutInflater) -> VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        updateResources("en")
         super.onCreate(savedInstanceState)
         _binding = inflate(layoutInflater)
         setContentView(_binding.root)
@@ -83,7 +82,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity(), IBaseView {
         }
     }
 
-    private fun updateResources(language: String) {
+    protected fun updateResources(language: String) {
         val res = this.resources
         val conf = res.configuration
         conf.setLocale(Locale(language))

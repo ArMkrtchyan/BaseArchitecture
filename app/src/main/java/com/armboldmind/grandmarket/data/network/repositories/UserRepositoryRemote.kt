@@ -14,7 +14,7 @@ class UserRepositoryRemote @Inject constructor(private val mUserService: IUserSe
     }
 
     override suspend fun signInAsGuest() {
-
+        getPagingResult { mUserService.signIn() }
     }
 
     override suspend fun signUp() {

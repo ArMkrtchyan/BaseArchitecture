@@ -9,6 +9,8 @@ import com.armboldmind.grandmarket.data.IUserRepository
 import com.armboldmind.grandmarket.data.network.NetworkError
 import com.armboldmind.grandmarket.di.Local
 import com.armboldmind.grandmarket.di.Remote
+import com.armboldmind.grandmarket.shared.managers.PreferencesManager
+import com.armboldmind.grandmarket.shared.utils.AppConstants
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onStart
@@ -29,13 +31,17 @@ class MainViewModel : BaseViewModel() {
     @Remote
     lateinit var mUserRepositoryRemote: IUserRepository
 
+    @Inject
+    lateinit var mPreferencesManager: PreferencesManager
+
     init {
         GrandMarketApp.getInstance().mAppComponent?.authorizationComponent?.build()?.inject(this)
         Log.i("Logesxnst", mContext.toString())
         getData()
+        mPreferencesManager.saveByKey(AppConstants.LANGUAGE_CODE, "hy")
     }
 
-     fun getData() {
+    fun getData() {
         viewModelScope.launch {
             mUserRepositoryRemote.signIn().onStart {
                 _uiState.postValue(UIState.LOADING)

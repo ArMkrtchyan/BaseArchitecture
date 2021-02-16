@@ -1,6 +1,9 @@
 package com.armboldmind.grandmarket.data.network
 
 import androidx.annotation.Keep
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -27,4 +30,15 @@ open class BaseDataSource {
             }
         }.flowOn(Dispatchers.IO)
     }
+
+    protected suspend fun <T : Any> getPagingResult(call: suspend () -> Response<ResponseModel<T>>): Flow<PagingData<T>> {
+        return Pager(createDefaultPagingConfig()) {
+            PagingDataSource<T>(call)
+        }.flow
+    }
+
+    private fun createDefaultPagingConfig(): PagingConfig {
+        return PagingConfig(20, 5, false, 20)
+    }
+
 }
