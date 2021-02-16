@@ -1,6 +1,7 @@
 package com.armboldmind.grandmarket.di.modules
 
 import android.content.Context
+import com.armboldmind.grandmarket.data.network.services.IUserService
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
 import dagger.Provides
@@ -26,7 +27,12 @@ class NetworkModule {
 
     @Provides
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder().client(okHttpClient).baseUrl("http://localhost.am/").addConverterFactory(GsonConverterFactory.create()).build()
+        return Retrofit.Builder().client(okHttpClient).baseUrl("https://jsonplaceholder.typicode.com/").addConverterFactory(GsonConverterFactory.create()).build()
+    }
+
+    @Provides
+    fun providesUserService(retrofit: Retrofit): IUserService {
+        return retrofit.create(IUserService::class.java)
     }
 
 

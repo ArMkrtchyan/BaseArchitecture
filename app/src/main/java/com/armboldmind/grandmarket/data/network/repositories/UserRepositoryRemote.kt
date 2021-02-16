@@ -1,12 +1,16 @@
 package com.armboldmind.grandmarket.data.network.repositories
 
-import android.util.Log
 import com.armboldmind.grandmarket.data.IUserRepository
+import com.armboldmind.grandmarket.data.models.responsemodels.UserResponseModel
+import com.armboldmind.grandmarket.data.network.BaseDataSource
+import com.armboldmind.grandmarket.data.network.services.IUserService
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class UserRepositoryRemote @Inject constructor() : IUserRepository {
-    override suspend fun signIn() {
-        Log.i("RepoTag", "Remote")
+class UserRepositoryRemote @Inject constructor(private val mUserService: IUserService) : BaseDataSource(), IUserRepository {
+
+    override suspend fun signIn(): Flow<UserResponseModel?> {
+        return getResult { mUserService.signIn() }
     }
 
     override suspend fun signInAsGuest() {

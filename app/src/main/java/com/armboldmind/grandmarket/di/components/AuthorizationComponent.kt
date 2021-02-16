@@ -1,5 +1,6 @@
 package com.armboldmind.grandmarket.di.components
 
+import com.armboldmind.grandmarket.data.network.services.IUserService
 import com.armboldmind.grandmarket.di.modules.RepositoryLocaleModule
 import com.armboldmind.grandmarket.di.modules.RepositoryRemoteModule
 import com.armboldmind.grandmarket.ui.MainViewModel
@@ -12,6 +13,8 @@ interface AuthorizationComponent {
     interface Builder {
         fun build(): AuthorizationComponent
     }
+
+    fun userService(): IUserService
 
     fun inject(mainViewModel: MainViewModel)
 }

@@ -23,7 +23,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 mViewModel.setServerError()
             }
             stateLayout.setOnServerErrorButtonClick(R.string.retry) {
-                mViewModel.setSuccess()
+                mViewModel.getData()
             }
         }
     }
