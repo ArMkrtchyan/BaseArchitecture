@@ -5,4 +5,7 @@
     <color name="colorAccent">#E2066D</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="divider_color">#F1F1F1</color>
+    <color name="dark_blue_base">#2C323D</color>
 </resources>
