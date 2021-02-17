@@ -1,9 +1,10 @@
 package com.armboldmind.grandmarket.data.network
 
-import androidx.annotation.Keep
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.armboldmind.grandmarket.data.models.paginatonModels.PaginationRequestModel
+import com.armboldmind.grandmarket.data.models.paginatonModels.PaginationResponseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -12,10 +13,6 @@ import retrofit2.HttpException
 import retrofit2.Response
 import java.net.HttpURLConnection
 
-/**
- * Abstract Base Data source class with error handling
- */
-@Keep
 open class BaseDataSource {
     protected suspend fun <T> getResult(call: suspend () -> Response<ResponseModel<T>>): Flow<T> {
         return flow {
@@ -31,14 +28,14 @@ open class BaseDataSource {
         }.flowOn(Dispatchers.IO)
     }
 
-    protected suspend fun <T : Any> getPagingResult(call: suspend () -> Response<ResponseModel<T>>): Flow<PagingData<T>> {
+    protected suspend fun <T : Any> getPagingResult(model: PaginationRequestModel, call: suspend () -> Response<ResponseModel<PaginationResponseModel<T>>>): Flow<PagingData<T>> {
         return Pager(createDefaultPagingConfig()) {
-            PagingDataSource<T>(call)
+            PagingDataSource<T>(model, call)
         }.flow
     }
 
     private fun createDefaultPagingConfig(): PagingConfig {
-        return PagingConfig(20, 5, false, 20)
+        return PagingConfig(20, 5, enablePlaceholders = false)
     }
 
 }

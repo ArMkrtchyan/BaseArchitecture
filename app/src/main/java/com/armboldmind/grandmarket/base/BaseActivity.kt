@@ -9,7 +9,6 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.armboldmind.grandmarket.R
@@ -88,7 +87,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity(), IBaseView {
         conf.setLocale(Locale(language))
         Locale.setDefault(Locale(language))
         this.baseContext.resources.updateConfiguration(conf, this.baseContext.resources.displayMetrics)
-        ActivityCompat.invalidateOptionsMenu(this)
         this.resources.updateConfiguration(conf, this.resources.displayMetrics)
         res.updateConfiguration(conf, res.displayMetrics)
     }

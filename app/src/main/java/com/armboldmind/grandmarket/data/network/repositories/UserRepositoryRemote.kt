@@ -1,6 +1,8 @@
 package com.armboldmind.grandmarket.data.network.repositories
 
+import androidx.paging.PagingData
 import com.armboldmind.grandmarket.data.IUserRepository
+import com.armboldmind.grandmarket.data.models.paginatonModels.PaginationRequestModel
 import com.armboldmind.grandmarket.data.models.responsemodels.UserResponseModel
 import com.armboldmind.grandmarket.data.network.BaseDataSource
 import com.armboldmind.grandmarket.data.network.services.IUserService
@@ -13,8 +15,9 @@ class UserRepositoryRemote @Inject constructor(private val mUserService: IUserSe
         return getResult { mUserService.signIn() }
     }
 
-    override suspend fun signInAsGuest() {
-        getPagingResult { mUserService.signIn() }
+    override suspend fun signInAsGuest(): Flow<PagingData<UserResponseModel>> {
+        val model = PaginationRequestModel()
+        return getPagingResult(model) { mUserService.getHomeInterestedProducts(model) }
     }
 
     override suspend fun signUp() {
