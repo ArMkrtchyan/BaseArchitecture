@@ -30,11 +30,13 @@ class NetworkModule {
     }
 
     @Provides
+    @Singleton
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder().client(okHttpClient).baseUrl("https://apishop.yerevan-city.am/").addConverterFactory(GsonConverterFactory.create()).build()
     }
 
     @Provides
+    @Singleton
     fun providesUserService(retrofit: Retrofit): IUserService {
         return retrofit.create(IUserService::class.java)
     }

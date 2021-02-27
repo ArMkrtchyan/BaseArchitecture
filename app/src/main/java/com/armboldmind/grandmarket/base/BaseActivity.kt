@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.armboldmind.grandmarket.R
+import com.armboldmind.grandmarket.shared.customview.StateLayout
 import com.armboldmind.grandmarket.shared.globalextensions.getColorCompat
 import com.google.android.material.snackbar.Snackbar
 import java.util.*
@@ -21,6 +22,8 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity(), IBaseView {
     inline fun <reified T : BaseViewModel> createViewModel(modelClass: Class<T>): T {
         return ViewModelProvider(this).get(modelClass)
     }
+
+    protected open val mEmptyModel: StateLayout.EmptyModel? = null
 
     private lateinit var _binding: VB
     protected val mBinding: VB
@@ -32,6 +35,24 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity(), IBaseView {
         super.onCreate(savedInstanceState)
         _binding = inflate(layoutInflater)
         setContentView(_binding.root)
+    }
+
+    protected open fun setListeners(binding: VB) {
+
+    }
+
+    protected open fun removeListeners(binding: VB) {
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setListeners(_binding)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        removeListeners(_binding)
     }
 
     override fun showServerError(message: String) {

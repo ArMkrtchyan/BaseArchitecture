@@ -5,6 +5,7 @@ import com.armboldmind.grandmarket.data.database.GrandMarketDB
 import com.armboldmind.grandmarket.di.modules.AppModule
 import com.armboldmind.grandmarket.di.modules.DatabaseModule
 import com.armboldmind.grandmarket.di.modules.NetworkModule
+import com.armboldmind.grandmarket.shared.managers.DataStoreManager
 import com.armboldmind.grandmarket.shared.managers.PreferencesManager
 import dagger.Component
 import retrofit2.Retrofit
@@ -16,6 +17,7 @@ interface AppComponent {
     fun context(): Context
     fun retrofit(): Retrofit
     fun preferences(): PreferencesManager
+    fun dataStore(): DataStoreManager
     fun grandMarketDb(): GrandMarketDB
 
     val authorizationComponent: AuthorizationComponent.Builder

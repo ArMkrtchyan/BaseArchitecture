@@ -1,5 +1,9 @@
 package com.armboldmind.grandmarket.shared.utils
 
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
+
 object AppConstants {
-    const val LANGUAGE_CODE = "LanguageCode"
+    val LANGUAGE_CODE = stringPreferencesKey("LanguageCode")
+    val DARK_MODE = booleanPreferencesKey("DarkMode")
 }

@@ -1,28 +1,24 @@
 package com.armboldmind.grandmarket.ui
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LoadState
-import com.armboldmind.grandmarket.GrandMarketApp
 import com.armboldmind.grandmarket.base.BaseViewModel
 import com.armboldmind.grandmarket.base.UIState
 import com.armboldmind.grandmarket.data.IUserRepository
 import com.armboldmind.grandmarket.data.network.NetworkError
-import com.armboldmind.grandmarket.di.Local
-import com.armboldmind.grandmarket.di.Remote
+import com.armboldmind.grandmarket.di.qualifiers.Local
+import com.armboldmind.grandmarket.di.qualifiers.Remote
+import com.armboldmind.grandmarket.shared.globalextensions.appComponent
+import com.armboldmind.grandmarket.shared.managers.DataStoreManager
 import com.armboldmind.grandmarket.shared.managers.PreferencesManager
 import com.armboldmind.grandmarket.shared.utils.AppConstants
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 import javax.inject.Inject
 
 class MainViewModel : BaseViewModel() {
-
-    @Inject
-    lateinit var mContext: Retrofit
 
     @Inject
     @Local
@@ -33,19 +29,19 @@ class MainViewModel : BaseViewModel() {
     lateinit var mUserRepositoryRemote: IUserRepository
 
     @Inject
-    lateinit var mPreferencesManager: PreferencesManager
+    lateinit var mPreferencesManager: DataStoreManager
 
     val adapter = Adapter()
 
     init {
-        GrandMarketApp.getInstance().mAppComponent?.authorizationComponent?.build()?.inject(this)
-        Log.i("Logesxnst", mContext.toString())
+        appComponent().authorizationComponent.build().inject(this)
         getData()
-        mPreferencesManager.saveByKey(AppConstants.LANGUAGE_CODE, "hy")
+
     }
 
     fun getData() {
         viewModelScope.launch {
+            mPreferencesManager.saveByKey(AppConstants.LANGUAGE_CODE, "hy")
             mUserRepositoryRemote.signInAsGuest().onStart {
                 _uiState.postValue(UIState.LOADING)
             }.catch {

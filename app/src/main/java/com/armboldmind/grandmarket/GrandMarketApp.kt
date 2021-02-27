@@ -8,7 +8,7 @@ import com.armboldmind.grandmarket.di.modules.NetworkModule
 
 class GrandMarketApp : Application() {
 
-    var mAppComponent: AppComponent? = null
+    lateinit var mAppComponent: AppComponent
 
     companion object {
         private lateinit var mInstance: GrandMarketApp
