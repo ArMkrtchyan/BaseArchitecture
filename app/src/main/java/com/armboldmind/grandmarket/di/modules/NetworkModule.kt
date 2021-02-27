@@ -2,7 +2,7 @@ package com.armboldmind.grandmarket.di.modules
 
 import android.content.Context
 import com.armboldmind.grandmarket.data.network.services.IUserService
-import com.readystatesoftware.chuck.ChuckInterceptor
+//import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -25,7 +25,8 @@ class NetworkModule {
                 .build()
             val response = chain.proceed(request)
             response
-        }.connectTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS).writeTimeout(60, TimeUnit.SECONDS).addInterceptor(ChuckInterceptor(context))
+        }.connectTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS).writeTimeout(60, TimeUnit.SECONDS)
+            //.addInterceptor(ChuckInterceptor(context))
             .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }).build()
     }
 
