@@ -1,49 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.armboldmind.grandmarket">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    package="com.example.basearchitecture">
 
     <application
-        android:name=".GrandMarketApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeLight"
-        android:usesCleartextTraffic="true">
-
+        android:theme="@style/Theme.BaseArchitecture">
         <activity
-            android:name=".ui.MainActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity">
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <!--        <service-->
-        <!--            android:name=".repository.services.FirebaseService"-->
-        <!--            android:exported="false">-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
-        <!--            </intent-filter>-->
-        <!--        </service>-->
-
-        <!--        <meta-data-->
-        <!--            android:name="com.google.firebase.messaging.default_notification_icon"-->
-        <!--            android:resource="@drawable/ic_notification" />-->
-
-        <!--        <meta-data-->
-        <!--            android:name="com.google.firebase.messaging.default_notification_color"-->
-        <!--            android:resource="@color/colorAccent" />-->
     </application>
 
 </manifest>

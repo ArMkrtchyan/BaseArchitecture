@@ -1,52 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <data>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <variable
-            name="emptyModel"
-            type="com.armboldmind.grandmarket.shared.customview.StateLayout.EmptyModel" />
-
-        <variable
-            name="viewModel"
-            type="com.armboldmind.grandmarket.ui.MainViewModel" />
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/backgroundColor"
-        tools:context=".ui.MainActivity">
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/darkMode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Dark Mode"
-            android:textColor="?attr/textColor"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:clipToPadding="false"
-            android:paddingBottom="16dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/darkMode"
-            tools:listitem="@layout/adapter_paging" />
-
-        <com.armboldmind.grandmarket.shared.customview.StateLayout
-            android:id="@+id/state_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:setEmpty="@{emptyModel}"
-            app:setStateHandler="@{viewModel.uiState}" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
