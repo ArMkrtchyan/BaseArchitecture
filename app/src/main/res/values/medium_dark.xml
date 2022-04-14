@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="BaseMediumStyleDark">
         <item name="android:fontFamily">@font/medium</item>
         <item name="android:textColor">@color/textColorForDark</item>

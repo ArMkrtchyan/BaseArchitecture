@@ -20,8 +20,6 @@ android {
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
-        buildConfigField "String", "BASEURL", "\"https://host.com/api/\""
-        buildConfigField "String", "BASEURL_STAGING", "\"https://hostStaging.com/api/\""
     }
 
     buildTypes {

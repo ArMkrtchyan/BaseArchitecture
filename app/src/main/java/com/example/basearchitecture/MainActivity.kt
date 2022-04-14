@@ -1,11 +1,17 @@
 package com.example.basearchitecture
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.view.LayoutInflater
+import com.example.basearchitecture.base.BaseActivity
+import com.example.basearchitecture.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+@AndroidEntryPoint
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+    override val inflate: (LayoutInflater) -> ActivityMainBinding
+        get() = ActivityMainBinding::inflate
+
+    override fun ActivityMainBinding.initView() {
+
     }
+
 }

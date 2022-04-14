@@ -8,10 +8,10 @@
         android:valueFrom="-1280"
         android:valueTo="0"
         android:valueType="floatType" />
-<!--    <objectAnimator-->
-<!--        android:duration="100"-->
-<!--        android:interpolator="@android:anim/accelerate_interpolator"-->
-<!--        android:propertyName="alpha"-->
-<!--        android:valueTo="1"-->
-<!--        android:valueType="floatType" />-->
+    <!--    <objectAnimator-->
+    <!--        android:duration="100"-->
+    <!--        android:interpolator="@android:anim/accelerate_interpolator"-->
+    <!--        android:propertyName="alpha"-->
+    <!--        android:valueTo="1"-->
+    <!--        android:valueType="floatType" />-->
 </set>

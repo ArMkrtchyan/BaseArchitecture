@@ -2,24 +2,4 @@
     <string name="app_name" translatable="false">Delivery.am</string>
     <string name="no_internet_connection">No internet connection</string>
     <string name="connected">Connected</string>
-    <string name="sign_in">Sign in</string>
-    <string name="please_write_your_mobile_nphone_number">Please write your mobile\nphone number</string>
-    <string name="phone_number">Phone number</string>
-    <string name="next">Next</string>
-    <string name="continue_as_a_guest">Continue as a Guest</string>
-    <string name="verification_code">Verification code</string>
-    <string name="resend_code_in">Resend code in</string>
-    <string name="terms_and_policy">By clicking you confirm that you read and agree with Terms and Condition and Privacy Policy</string>
-    <string name="resend">Resend</string>
-    <string name="terms_and_condition">Terms and Condition</string>
-    <string name="change">Change</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="have_send_code">We have sent you code to $ Change</string>
-    <string name="welcome">Welcome</string>
-    <string name="fill_your_personal_information">Fill your personal information</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
-    <string name="continue_text">Continue</string>
-    <string name="search">Search</string>
-    <string name="choose">Choose</string>
 </resources>

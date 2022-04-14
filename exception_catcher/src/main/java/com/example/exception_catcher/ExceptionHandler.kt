@@ -10,7 +10,6 @@ import android.os.Process
 import android.provider.Settings
 import kotlin.system.exitProcess
 
-
 object ExceptionHandler {
 
     lateinit var mApplication: Application
@@ -31,16 +30,8 @@ object ExceptionHandler {
                 Pair("unavailable", 0)
             }
 
-            val s = "throwable -> ${throwable.message}\n" +
-                    "manufacture -> ${Build.MANUFACTURER}\n" +
-                    "deviceModel -> ${Build.MODEL}\n" +
-                    "versionName -> ${pair.first}\n" +
-                    "versionCode -> ${pair.second}\n" +
-                    "deviceModel -> ${Build.MODEL}\n" +
-                    "androidVersionCode -> ${Build.VERSION.SDK_INT}\n" +
-                    "deviceId -> ${Settings.Secure.getString(mApplication.contentResolver, Settings.Secure.ANDROID_ID)}\n" +
-                    "threadName -> ${thread.name}\n" +
-                    "stackTrace -> ${throwable.stackTraceToString()}"
+            val s =
+                "throwable -> ${throwable.message}\n" + "manufacture -> ${Build.MANUFACTURER}\n" + "deviceModel -> ${Build.MODEL}\n" + "versionName -> ${pair.first}\n" + "versionCode -> ${pair.second}\n" + "deviceModel -> ${Build.MODEL}\n" + "androidVersionCode -> ${Build.VERSION.SDK_INT}\n" + "deviceId -> ${Settings.Secure.getString(mApplication.contentResolver, Settings.Secure.ANDROID_ID)}\n" + "threadName -> ${thread.name}\n" + "stackTrace -> ${throwable.stackTraceToString()}"
 
             val model = ErrorModel()
             model.text = s

@@ -13,6 +13,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "BASEURL", "\"https://host.com/api/\""
+        buildConfigField "String", "BASEURL_STAGING", "\"https://hostStaging.com/api/\""
     }
 
     buildTypes {
