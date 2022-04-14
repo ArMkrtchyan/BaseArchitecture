@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <bool name="isTablet">true</bool>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <item name="isTablet" type="bool">true</item>
 </resources>

@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Grand Market</string>
 
-    <!--    Global string resources   -->
-    <string name="next">Next</string>
-    <string name="done">Done</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="confirm">Confirm</string>
-    <string name="cancel">Cancel</string>
-    <string name="retry">Retry</string>
-
-
-    <!--    Messages string resources   -->
-    <string name="default_error_message">Sorry something went wrong. Please try again later.</string>
-    <string name="default_network_error_title">No internet connection.</string>
-    <string name="default_network_error_description">No internet connection.\nPlease try again later.</string>
-    <string name="default_server_error_title">Internal server error.</string>
-    <string name="default_server_error_description">We are trying to solve the problem. Please try again later.</string>
-    <string name="default_empty_title">Found nothing.</string>
-    <string name="default_empty_description">We are trying to find something.</string>
+    <string name="connected">Connected</string>
+    <string name="no_internet_connection">No internet connection</string>
 </resources>

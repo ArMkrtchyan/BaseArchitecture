@@ -1,8 +1,127 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        kotlin_version = '1.6.10'
+        navigation_version = "2.3.3"
+        room_version = '2.4.2'
+        lifecycle_version = '2.4.1'
+        hilt_version = '2.41'
+        retrofit_version = '2.9.0'
+        ok_http_version = '5.0.0-alpha.6'
+        kotlin_coroutine_version = '1.6.1-native-mt'
+        navigation_version = '2.5.0-alpha04'
+        room_version = '2.4.2'
+        hilt_version = '2.41'
+        lifecycle_version = '2.4.1'
+        navigation_version = '2.5.0-alpha04'
+
+        // AndroidX dependencies
+        androidXDependencies = [
+                appcompat       : 'androidx.appcompat:appcompat:1.4.1',
+                core            : 'androidx.core:core-ktx:1.7.0',
+                paging          : 'androidx.paging:paging-runtime-ktx:3.1.1',
+                constraintlayout: 'androidx.constraintlayout:constraintlayout:2.1.3',
+                support         : 'androidx.legacy:legacy-support-v4:1.0.0',
+                activity        : 'androidx.activity:activity-ktx:1.4.0',
+                fragment        : 'androidx.fragment:fragment-ktx:1.4.1',
+        ]
+
+        // Google dependencies
+        googleDependencies = [
+                'com.google.android.material:material:1.6.0-beta01',
+                'com.google.android.play:core:1.10.3',
+                'com.google.code.gson:gson:2.9.0'
+
+        ]
+
+        // Firebase dependencies
+        firebaseDependencies = [
+                'com.google.firebase:firebase-core:20.1.2',
+                'com.google.firebase:firebase-analytics:20.1.2',
+                'com.google.firebase:firebase-crashlytics:18.2.9',
+                'com.google.firebase:firebase-messaging:23.0.2',
+        ]
+
+        // Navigation dependencies
+        navigationDependencies = [
+                "androidx.navigation:navigation-fragment-ktx:$navigation_version",
+                "androidx.navigation:navigation-ui-ktx:$navigation_version"
+        ]
+
+        // Hilt dependencies
+        hiltDependencies = [
+                // Hilt
+                "com.google.dagger:hilt-android:$hilt_version",
+                "androidx.hilt:hilt-navigation-fragment:1.0.0"
+        ]
+        kaptDependencies = [
+                hilt : "com.google.dagger:hilt-compiler:$hilt_version",
+                room : "androidx.room:room-compiler:$room_version",
+                glide: 'com.github.bumptech.glide:compiler:4.13.1',
+        ]
+        // Room dependencies
+        roomDependencies = [
+                "androidx.room:room-ktx:$room_version",
+                "androidx.room:room-runtime:$room_version",
+        ]
+
+        // Retrofit and Okhttp3 dependencies
+        networkDependencies = [
+                "com.squareup.retrofit2:retrofit:$retrofit_version",
+                "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version",
+                "com.squareup.retrofit2:converter-gson:$retrofit_version",
+
+                "com.squareup.okhttp3:logging-interceptor:$ok_http_version",
+                "com.squareup.okhttp3:okhttp:$ok_http_version",
+                'com.readystatesoftware.chuck:library:1.1.0',
+        ]
+
+        // LiveData and ViewModel dependencies
+        liveDataVMDependencies = [
+                lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:2.2.0",
+                lifecycleViewmodel : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+                lifecycleLivedata  : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+                lifecycleRuntime   : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version",
+        ]
+
+        // Coroutine dependencies
+        coroutineDependencies = [
+                "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutine_version",
+                "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutine_version",
+        ]
+
+        // Media dependencies
+        mediaDependencies = [
+                'com.airbnb.android:lottie:5.0.3',
+                'io.coil-kt:coil:1.3.2',
+                'com.github.bumptech.glide:glide:4.13.1',
+        ]
+
+        // Third party dependencies
+        thirthPartyDependencies = [
+                ccp                    : 'com.hbb20:ccp:2.6.0',
+                keyboardVisibilityEvent: "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:3.0.0-RC3"
+        ]
+
+        // Test dependencies
+        testDependencies = [
+                junit               : 'junit:junit:4.13.2',
+                androidxTestExt     : 'androidx.test.ext:junit:1.1.3',
+                androidxTestEspresso: 'androidx.test.espresso:espresso-core:3.4.0'
+        ]
+    }
+
+    dependencies {
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
+    }
+}
+
 plugins {
     id 'com.android.application' version '7.1.3' apply false
     id 'com.android.library' version '7.1.3' apply false
-    id 'org.jetbrains.kotlin.android' version '1.6.20' apply false
+    id 'org.jetbrains.kotlin.android' version "$kotlin_version" apply false
 }
 
 task clean(type: Delete) {

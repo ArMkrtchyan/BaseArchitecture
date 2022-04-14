@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':domain')
+    implementation project(':app')
+
+    kapt kaptDependencies.room
+    kapt kaptDependencies.hilt
+
+    for (dep in hiltDependencies) {
+        implementation dep
+    }
+    for (dep in roomDependencies) {
+        implementation dep
+    }
+    for (dep in networkDependencies) {
+        implementation dep
+    }
+    for (dep in coroutineDependencies) {
+        implementation dep
+    }
+
+    implementation testDependencies.junit
+}

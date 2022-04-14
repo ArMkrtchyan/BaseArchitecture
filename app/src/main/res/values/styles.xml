@@ -1,33 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-
-    <!-- Base application theme. -->
-    <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@android:color/white</item>
-        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
-        <item name="android:windowIsTranslucent">false</item>
-        <item name="backgroundColor">@color/white</item>
-        <item name="textColor">@color/black</item>
-        <item name="buttonBackgroundColor">@color/colorAccent</item>
-        <item name="buttonTextColor">@color/white</item>
-        <item name="cardBackgroundColor">@color/black</item>
-    </style>
-
-    <style name="AppThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
+    <!-- Base application theme dark. -->
+    <style name="AppThemeDark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccentDark</item>
-        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/background_color_light</item>
+        <item name="android:windowBackground">@color/backgroundColorDark</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="android:windowIsTranslucent">false</item>
-        <item name="backgroundColor">@color/black</item>
-        <item name="textColor">@color/white</item>
-        <item name="buttonBackgroundColor">@color/colorAccentDark</item>
-        <item name="buttonTextColor">@color/white</item>
-        <item name="cardBackgroundColor">@color/colorAccentDark</item>
+        <item name="android:navigationIcon">@drawable/ic_back</item>
+        <item name="InputStyle">@style/InputStyleDark</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="BottomSheetDialogStyle">@style/BottomSheetDialogThemeDark</item>
+
+        <!-- Regular text styles attributes-->
+        <item name="Regular12Style">@style/Regular12StyleDark</item>
+        <item name="Regular14Style">@style/Regular14StyleDark</item>
+        <item name="Regular16Style">@style/Regular16StyleDark</item>
+        <item name="Regular18Style">@style/Regular18StyleDark</item>
+        <item name="Regular20Style">@style/Regular20StyleDark</item>
+        <item name="Regular22Style">@style/Regular22StyleDark</item>
+
+        <!-- Medium text styles attributes-->
+        <item name="Medium12Style">@style/Medium12StyleDark</item>
+        <item name="Medium14Style">@style/Medium14StyleDark</item>
+        <item name="Medium16Style">@style/Medium16StyleDark</item>
+        <item name="Medium18Style">@style/Medium18StyleDark</item>
+        <item name="Medium20Style">@style/Medium20StyleDark</item>
+        <item name="Medium22Style">@style/Medium22StyleDark</item>
+
+        <!-- Bold text styles attributes-->
+        <item name="Bold14Style">@style/Bold14StyleDark</item>
+        <item name="Bold16Style">@style/Bold16StyleDark</item>
+        <item name="Bold18Style">@style/Bold18StyleDark</item>
+        <item name="Bold20Style">@style/Bold20StyleDark</item>
+        <item name="Bold22Style">@style/Bold22StyleDark</item>
+        <item name="Bold24Style">@style/Bold24StyleDark</item>
+        <item name="Bold26Style">@style/Bold26StyleDark</item>
+        <item name="Bold28Style">@style/Bold28StyleDark</item>
+
+        <!-- divider's attributes-->
+        <item name="dividerBackground">@color/divider_color_light</item>
+        <item name="WindowBackgroundColor">@color/black</item>
+        <item name="InputBackgroundColor">@color/inputBackgroundColorDark</item>
+        <item name="CardBackgroundColor">@color/cardBackgroundColorDark</item>
+        <item name="ButtonBackgroundColor">@color/buttonBackgroundColorDark</item>
+        <item name="HintColor">@color/hintColorDark</item>
+        <item name="TextColor">@color/textColorForDark</item>
     </style>
 
+    <style name="InputStyleDark">
+        <item name="android:textSize">@dimen/text_size_4</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">@dimen/view_size_1</item>
+        <item name="android:textColorHint">@color/hintColorDark</item>
+        <item name="android:background">@drawable/input_strock_background</item>
+    </style>
+
+    <style name="BottomSheetDark" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_bottom_sheet_dialog</item>
+    </style>
+
+    <style name="BottomSheetDialogThemeDark" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/BottomSheetDark</item>
+    </style>
 </resources>

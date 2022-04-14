@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseRegularStyleDark">
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textColor">@color/textColorForDark</item>
+    </style>
+
+    <style name="Regular12StyleDark" parent="BaseRegularStyleDark">
+        <item name="android:textSize">@dimen/text_size_2</item>
+    </style>
+
+    <style name="Regular14StyleDark" parent="BaseRegularStyleDark">
+        <item name="android:textSize">@dimen/text_size_3</item>
+    </style>
+
+    <style name="Regular16StyleDark" parent="BaseRegularStyleDark">
+        <item name="android:textSize">@dimen/text_size_4</item>
+    </style>
+
+    <style name="Regular18StyleDark" parent="BaseRegularStyleDark">
+        <item name="android:textSize">@dimen/text_size_5</item>
+    </style>
+
+    <style name="Regular20StyleDark" parent="BaseRegularStyleDark">
+        <item name="android:textSize">@dimen/text_size_6</item>
+    </style>
+
+    <style name="Regular22StyleDark" parent="BaseRegularStyleDark">
+        <item name="android:textSize">@dimen/text_size_7</item>
+    </style>
+</resources>

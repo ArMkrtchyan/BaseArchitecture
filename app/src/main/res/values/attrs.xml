@@ -4,33 +4,64 @@
     <declare-styleable name="StateLayout" />
 
     <declare-styleable name="ds">
-        <attr name="backgroundColor" format="color" />
-        <attr name="cardBackgroundColor" format="color" />
-        <attr name="textColor" format="color" />
-        <attr name="buttonBackgroundColor" format="color" />
-        <attr name="buttonTextColor" format="color" />
-        <attr name="linkTextColor" format="color" />
-        <attr name="inputStrokeColor" format="color" />
-        <attr name="transactionsBackground" format="color" />
-        <attr name="inputBackgroundColor" format="color" />
-        <attr name="hintColor" format="color" />
-        <attr name="buttonColor" format="color" />
-        <attr name="buttonColorGradientStart" format="color" />
-        <attr name="buttonColorGradientEnd" format="color" />
-        <attr name="buttonColorDisabled" format="color" />
-        <attr name="statusBarColor" format="color" />
-        <attr name="bottomIconColor" format="color" />
-        <attr name="strokeColor" format="color" />
-        <attr name="borderColor" format="color" />
-        <attr name="progressBackgroundColor" format="color" />
-        <attr name="bottomTextColor" format="color" />
-        <attr name="bottomTextColorUnSelected" format="color" />
-        <attr name="bottomIconColorUnselected" format="color" />
-        <attr name="bottomNavigationBackgroundColor" format="color" />
-        <attr name="shadow" format="integer" />
-        <attr name="tintBackground" format="color" />
-        <attr name="tintNotificationBackground" format="color" />
-        <attr name="bankCardBackground" format="integer" />
-        <attr name="bankCardBackgroundMain" format="integer" />
+
+        <attr name="InputStyle" format="reference" />
+
+        <!-- Regular text styles attributes-->
+        <attr name="Regular12Style" format="reference" />
+        <attr name="Regular14Style" format="reference" />
+        <attr name="Regular16Style" format="reference" />
+        <attr name="Regular18Style" format="reference" />
+        <attr name="Regular20Style" format="reference" />
+        <attr name="Regular22Style" format="reference" />
+
+        <!-- Medium text styles attributes-->
+        <attr name="Medium12Style" format="reference" />
+        <attr name="Medium14Style" format="reference" />
+        <attr name="Medium16Style" format="reference" />
+        <attr name="Medium18Style" format="reference" />
+        <attr name="Medium20Style" format="reference" />
+        <attr name="Medium22Style" format="reference" />
+
+        <!-- Bold text styles attributes-->
+        <attr name="Bold14Style" format="reference" />
+        <attr name="Bold16Style" format="reference" />
+        <attr name="Bold18Style" format="reference" />
+        <attr name="Bold20Style" format="reference" />
+        <attr name="Bold22Style" format="reference" />
+        <attr name="Bold24Style" format="reference" />
+        <attr name="Bold26Style" format="reference" />
+        <attr name="Bold28Style" format="reference" />
+
+
+        <!-- divider's attributes-->
+        <attr name="dividerBackground" format="reference" />
+
+        <attr name="WindowBackgroundColor" format="color" />
+        <attr name="InputBackgroundColor" format="color" />
+        <attr name="CardBackgroundColor" format="color" />
+        <attr name="ButtonBackgroundColor" format="color" />
+        <attr name="HintColor" format="color" />
+        <attr name="TextColor" format="color" />
+
+        <attr name="BottomSheetDialogStyle" format="reference" />
+
     </declare-styleable>
+
+    <declare-styleable name="MainButton">
+        <attr name="text" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="Shadow">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="shadowRadius" format="float" />
+        <attr name="isCycle" format="boolean" />
+        <attr name="shadowColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="FullscreenAttrs">
+        <attr name="fullscreenBackgroundColor" format="color" />
+        <attr name="fullscreenTextColor" format="color" />
+    </declare-styleable>
+
 </resources>

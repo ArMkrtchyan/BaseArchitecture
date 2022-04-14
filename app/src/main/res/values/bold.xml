@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseBoldStyleLight">
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textColor">@color/textColorForLight</item>
+    </style>
+
+    <style name="Bold14StyleLight" parent="BaseBoldStyleLight">
+        <item name="android:textSize">@dimen/text_size_3</item>
+    </style>
+
+    <style name="Bold16StyleLight" parent="BaseBoldStyleLight">
+        <item name="android:textSize">@dimen/text_size_4</item>
+    </style>
+
+    <style name="Bold18StyleLight" parent="BaseBoldStyleLight">
+        <item name="android:textSize">@dimen/text_size_5</item>
+    </style>
+
+    <style name="Bold20StyleLight" parent="BaseBoldStyleLight">
+        <item name="android:textSize">@dimen/text_size_6</item>
+    </style>
+
+    <style name="Bold22StyleLight" parent="BaseBoldStyleLight">
+        <item name="android:textSize">@dimen/text_size_7</item>
+    </style>
+
+    <style name="Bold24StyleLight" parent="BaseBoldStyleLight">
+        <item name="android:textSize">@dimen/text_size_8</item>
+    </style>
+
+    <style name="Bold26StyleLight" parent="BaseBoldStyleLight">
+        <item name="android:textSize">@dimen/text_size_9</item>
+    </style>
+
+    <style name="Bold28StyleLight" parent="BaseBoldStyleLight">
+        <item name="android:textSize">@dimen/text_size_10</item>
+    </style>
+</resources>
