@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-internal class OtpGenerator private constructor(private val builder: Builder) {
+internal class OtpGenerator private constructor(builder: Builder) {
     private var oathService: OathService = builder.oathService
     private var tokenName: String? = builder.tokenName
     private var secureByteArray: SecureByteArray? = builder.secureByteArray
@@ -48,8 +48,10 @@ internal class OtpGenerator private constructor(private val builder: Builder) {
             }
         }.catch { throwable ->
             Log.d("GetOtpTag", "Exception: " + throwable.message)
+            Log.d("GetOtpTag", "StackTrace: " + throwable.stackTraceToString())
             emit("")
-        }.flowOn(Dispatchers.Default)
+        }
+            .flowOn(Dispatchers.Default)
     }
 
     /**
@@ -59,7 +61,7 @@ internal class OtpGenerator private constructor(private val builder: Builder) {
      * must be followed.
      */
     private fun generateOtp(): String {
-        var otp: SecureString? = null
+        val otp: SecureString?
 
         /**
          * This is to make sure passwordManager has been logged in
@@ -93,7 +95,8 @@ internal class OtpGenerator private constructor(private val builder: Builder) {
         val settings = oathService.factory?.createSoftOathSettings()
         settings?.setTotpTimestepSize(3)
         val device = oathService.factory?.createSoftOathDevice(token, settings)
-        oathService.factory?.createSoftOathSettings()?.setTotpTimestepSize(3)
+        oathService.factory?.createSoftOathSettings()
+            ?.setTotpTimestepSize(3)
         otp = device?.getTotp(authInput)
 
         /**
