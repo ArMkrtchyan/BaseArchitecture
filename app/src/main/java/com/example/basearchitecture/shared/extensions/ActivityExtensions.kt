@@ -51,27 +51,7 @@ object ActivityExtensions {
     }
 
     @JvmStatic
-    fun BaseActivity<*>.printLog(message: String) {
-        if (BuildConfig.DEBUG) Log.i(this::class.java.simpleName + "Tag", message)
-    }
-
-    @JvmStatic
-    fun BaseFragment<*>.printLog(message: String) {
-        if (BuildConfig.DEBUG) Log.i(this::class.java.simpleName + "Tag", message)
-    }
-
-    @JvmStatic
-    fun BaseViewModel<*>.printLog(message: String) {
-        if (BuildConfig.DEBUG) Log.i(this::class.java.simpleName + "Tag", message)
-    }
-
-    @JvmStatic
-    fun ListAdapter<*, *>.printLog(message: String) {
-        if (BuildConfig.DEBUG) Log.i(this::class.java.simpleName + "Tag", message)
-    }
-
-    @JvmStatic
-    fun BaseBottomSheetDialog<*>.printLog(message: String) {
+    fun Any.printLog(message: String) {
         if (BuildConfig.DEBUG) Log.i(this::class.java.simpleName + "Tag", message)
     }
 

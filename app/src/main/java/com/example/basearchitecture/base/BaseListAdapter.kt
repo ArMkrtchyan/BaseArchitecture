@@ -1,5 +1,6 @@
 package com.example.basearchitecture.base
 
+import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -11,7 +12,7 @@ abstract class BaseListAdapter<T : Any, VB : ViewBinding>(callback: DiffUtil.Ite
 
     private lateinit var _binding: VB
     protected abstract val inflate: Inflater<VB>
-    open val isRecycleble: Boolean = true
+    open val isRecyclable: Boolean = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         _binding = inflate(parent.inflater(), parent, false)
@@ -19,11 +20,11 @@ abstract class BaseListAdapter<T : Any, VB : ViewBinding>(callback: DiffUtil.Ite
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.onBind(position, getItem(position))
-        holder.setIsRecyclable(isRecycleble)
+        holder.binding.onBind(holder.mContext, position, getItem(position))
+        holder.setIsRecyclable(isRecyclable)
     }
 
-    abstract fun VB.onBind(position: Int, item: T)
+    abstract fun VB.onBind(context: Context, position: Int, item: T)
     inner class ViewHolder(val binding: VB) : BaseViewHolder(binding)
 
 }

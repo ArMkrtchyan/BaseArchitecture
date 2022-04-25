@@ -36,8 +36,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment(), ActivityCallback {
     protected val mBinding: VB
         get() = _binding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (!::_binding.isInitialized) {
             _binding = inflate(inflater, container, false)
             _binding.initView()
