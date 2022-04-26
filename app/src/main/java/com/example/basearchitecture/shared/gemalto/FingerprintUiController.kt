@@ -1,8 +1,8 @@
 package com.example.basearchitecture.shared.gemalto
 
 interface FingerprintUiController {
-    fun show()
-    fun dismiss()
-    fun cancel()
+    fun showDialog()
+    fun dismissDialog()
+    fun onCancel()
     fun setStatusText(text: String)
 }

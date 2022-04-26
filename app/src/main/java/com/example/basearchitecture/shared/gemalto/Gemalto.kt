@@ -3,6 +3,7 @@ package com.example.basearchitecture.shared.gemalto
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LifecycleCoroutineScope
+import com.gemalto.idp.mobile.authentication.mode.pin.PinAuthInput
 import com.gemalto.idp.mobile.core.IdpCore
 import com.gemalto.idp.mobile.core.passwordmanager.PasswordManagerException
 import com.gemalto.idp.mobile.core.util.SecureByteArray
@@ -19,12 +20,12 @@ class Gemalto private constructor(builder: Builder) {
     private var secureByteArray: SecureByteArray? = builder.secureByteArray
     private var otpType: OtpTypeEnum = builder.otpType
     private lateinit var core: IdpCore
+    private var authInput: PinAuthInput? = null
 
     class Builder {
         lateinit var mContext: Context
         var mLifeCycleScope: LifecycleCoroutineScope? = null
         var tokenName: String? = null
-        var registrationCode: String? = null
         var secureByteArray: SecureByteArray? = null
         var otpType: OtpTypeEnum = OtpTypeEnum.OTP
 
@@ -80,6 +81,7 @@ class Gemalto private constructor(builder: Builder) {
 
     fun openKeyBoard(onPinCountChange: (String) -> Unit, onOtpGenerated: (String) -> Unit): GemaltoKeyboard = GemaltoKeyboard(mContext, onPinAuth = {
         mLifeCycleScope?.launchWhenStarted {
+            authInput = it
             val otpGenerator = OtpGenerator.Builder()
                 .otpType(otpType)
                 .oathService(mOathService)
@@ -98,8 +100,8 @@ class Gemalto private constructor(builder: Builder) {
                 .oathService(mOathService)
                 .tokenName(tokenName)
                 .build()
-            fingerprintAuthInput.getOtpWithFingerprint(controller::show, { bioFingerprintAuthInput ->
-                controller.dismiss()
+            fingerprintAuthInput.getOtpWithFingerprint(controller::showDialog, { bioFingerprintAuthInput ->
+                controller.dismissDialog()
                 mLifeCycleScope?.launchWhenStarted {
                     val otpGenerator = OtpGenerator.Builder()
                         .otpType(otpType)
@@ -111,7 +113,19 @@ class Gemalto private constructor(builder: Builder) {
                     otpGenerator.generate()
                         .collectLatest { otp -> onOtpGenerated.invoke(otp) }
                 }
-            }, {}, controller::cancel,controller::setStatusText)
+            }, {}, controller::onCancel, controller::setStatusText)
+        }
+    }
+
+    fun activateFingerPrint() {
+        mLifeCycleScope?.launchWhenStarted {
+            val fActivator = FingerprintAuthModeActivator.Builder()
+                .oathService(mOathService)
+                .authInput(authInput)
+                .tokenName(tokenName)
+                .build()
+            fActivator.activate()
+                .collectLatest { success ->  }
         }
     }
 

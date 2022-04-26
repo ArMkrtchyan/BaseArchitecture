@@ -1,19 +1,43 @@
 package com.example.basearchitecture.shared.gemalto
 
-class FingerprintDialog : FingerprintUiController {
-    override fun show() {
+import android.app.Dialog
+import android.content.Context
+import android.os.Bundle
+import android.view.ViewGroup
+import android.view.Window
+import com.example.basearchitecture.databinding.DialogFactoryBinding
 
+class FingerprintDialog(context: Context, private val onCancel: () -> Unit) : Dialog(context), FingerprintUiController {
+
+    init {
+        window?.setBackgroundDrawableResource(android.R.color.transparent)
+        window?.requestFeature(Window.FEATURE_NO_TITLE)
     }
 
-    override fun dismiss() {
+    private lateinit var mBinding: DialogFactoryBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mBinding = DialogFactoryBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
+        window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        mBinding.cancel.setOnClickListener { onCancel.invoke() }
     }
 
-    override fun cancel() {
+    override fun showDialog() {
+        show()
+    }
 
+    override fun dismissDialog() {
+        dismiss()
+    }
+
+    override fun onCancel() {
+        onCancel.invoke()
+        dismiss()
     }
 
     override fun setStatusText(text: String) {
-
+        mBinding.title.text = text
     }
 }

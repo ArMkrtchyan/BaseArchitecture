@@ -21,29 +21,31 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun ActivityMainBinding.initView() {
         ApplicationContextHolder.setContext(applicationContext)
+        val gemalto = Gemalto.Builder()
+            .context(this@MainActivity)
+            .lifeCycleScope(lifecycleScope)
+            .tokenName("Arshak")
+            .otpType(OtpTypeEnum.OTP)
+            .build()
         open.setOnClickListener {
-            val gemalto = Gemalto.Builder()
-                .context(this@MainActivity)
-                .lifeCycleScope(lifecycleScope)
-                .tokenName("Arshak")
-                .otpType(OtpTypeEnum.OTP)
-                .build() //            keyboard.addView(gemalto.openKeyBoard({ pin -> //                otpTv.text = otpTv.text.toString() + pin //            }) { otp ->
-            //                Log.i("OtpTag", otp)
-            //                otpTv.text = otp
-            //                slideDown(keyboard)
-            //            })
-            //            slideUp(keyboard)
-            gemalto.useFingerPrint(FingerprintDialog()) { otp ->
+            keyboard.addView(gemalto.openKeyBoard({ pin ->
+                otpTv.text = otpTv.text.toString() + pin
+            }) { otp ->
+                Log.i("OtpTag", otp)
+                otpTv.text = otp
+                slideDown(keyboard)
+            })
+            slideUp(keyboard)
+        }
+        useFingerprint.setOnClickListener {
+            gemalto.useFingerPrint(FingerprintDialog(this@MainActivity) {
+                open.callOnClick()
+            }) { otp ->
 
             }
         }
         close.setOnClickListener { slideDown(keyboard) }
         register.setOnClickListener {
-            val gemalto = Gemalto.Builder()
-                .context(this@MainActivity)
-                .lifeCycleScope(lifecycleScope)
-                .tokenName("Arshak")
-                .build()
             gemalto.provisioning("123456", onComplete = {
                 Log.d("ProvTag", "Complete")
             }, onError = { Log.d("ProvTag", "Error") })
@@ -52,20 +54,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     fun slideUp(view: View) {
         view.visibility = View.VISIBLE
-        val animate = TranslateAnimation(0f,  // fromXDelta
-            0f,  // toXDelta
-            view.height.toFloat(),  // fromYDelta
-            0f) // toYDelta
+        val animate = TranslateAnimation(0f, 0f, view.height.toFloat(), 0f)
         animate.duration = 400
         animate.fillAfter = true
         view.startAnimation(animate)
     }
 
     fun slideDown(view: View) {
-        val animate = TranslateAnimation(0f,  // fromXDelta
-            0f,  // toXDelta
-            0f,  // fromYDelta
-            view.height.toFloat()) // toYDelta
+        val animate = TranslateAnimation(0f, 0f, 0f, view.height.toFloat())
         animate.duration = 400
         animate.fillAfter = true
         view.startAnimation(animate)
