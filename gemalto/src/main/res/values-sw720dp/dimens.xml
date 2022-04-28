@@ -1,0 +1,6 @@
+<resources>
+
+    <dimen name="view_size_3">25dp</dimen>
+
+    <dimen name="text_size_6">23sp</dimen>
+</resources>

@@ -9,12 +9,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk projectCompileSdk
 
     defaultConfig {
         applicationId "com.example.basearchitecture"
-        minSdk 21
-        targetSdk 32
+        minSdk projectMinSdk
+        targetSdk projectTargetSdk
         versionCode 1
         versionName "1.0"
 
@@ -33,7 +33,6 @@ android {
             shrinkResources false
             multiDexEnabled false
 
-            //
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -44,9 +43,9 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
-    buildFeatures {
-        dataBinding true
+    buildFeatures{
         viewBinding true
+        dataBinding true
     }
     sourceSets {
         main {
@@ -74,22 +73,11 @@ project.ext {
 
 dependencies {
 
-    debugImplementation fileTree(dir: "$ezioSdkDistDir/debug", include: ['*.jar'])
-    releaseImplementation fileTree(dir: "$ezioSdkDistDir/release", include: ['*.jar'])
-
-    //sdk's dependencies
-    implementation 'com.madgag.spongycastle:pkix:1.54.0.0'
-    implementation 'net.java.dev.jna:jna:5.5.0@aar'
-
-
-    implementation 'com.madgag.spongycastle:core:1.58.0.0'
-    implementation 'com.madgag.spongycastle:prov:1.58.0.0'
-    implementation 'com.madgag.spongycastle:pg:1.54.0.0'
-    implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'androidx.biometric:biometric:1.1.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':domain')
     implementation project(':exception_catcher')
+    implementation project(':gemalto')
+    implementation project(':core')
 
     implementation androidXDependencies.appcompat
     implementation androidXDependencies.core
@@ -97,33 +85,16 @@ dependencies {
     implementation androidXDependencies.support
     implementation androidXDependencies.activity
     implementation androidXDependencies.fragment
-    implementation thirthPartyDependencies.ccp
-    implementation thirthPartyDependencies.keyboardVisibilityEvent
+    
     kapt kaptDependencies.hilt
-    kapt kaptDependencies.glide
 
     for (dep in hiltDependencies) {
         implementation dep
     }
-    for (dep in liveDataVMDependencies) {
-        implementation dep.value
-    }
-    for (dep in googleDependencies) {
-        implementation dep
-    }
-    for (dep in firebaseDependencies) {
-        implementation dep
-    }
-    for (dep in navigationDependencies) {
-        implementation dep
-    }
-    for (dep in coroutineDependencies) {
-        implementation dep
-    }
-    for (dep in mediaDependencies) {
-        implementation dep
-    }
-    for (dep in testDependencies) {
-        implementation dep.value
-    }
+
+    // Gemalto -> for otp generation
+    debugImplementation fileTree(dir: "$ezioSdkDistDir/debug", include: ['*.jar'])
+    releaseImplementation fileTree(dir: "$ezioSdkDistDir/release", include: ['*.jar'])
+    implementation jna
+    implementation biometric
 }

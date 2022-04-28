@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseMediumStyleLight">
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textColor">@color/textColorForLight</item>
+    </style>
+
+    <style name="Medium12StyleLight" parent="BaseMediumStyleLight">
+        <item name="android:textSize">@dimen/text_size_2</item>
+    </style>
+
+    <style name="Medium14StyleLight" parent="BaseMediumStyleLight">
+        <item name="android:textSize">@dimen/text_size_3</item>
+    </style>
+
+    <style name="Medium16StyleLight" parent="BaseMediumStyleLight">
+        <item name="android:textSize">@dimen/text_size_4</item>
+    </style>
+
+    <style name="Medium18StyleLight" parent="BaseMediumStyleLight">
+        <item name="android:textSize">@dimen/text_size_5</item>
+    </style>
+
+    <style name="Medium20StyleLight" parent="BaseMediumStyleLight">
+        <item name="android:textSize">@dimen/text_size_6</item>
+    </style>
+
+    <style name="Medium22StyleLight" parent="BaseMediumStyleLight">
+        <item name="android:textSize">@dimen/text_size_7</item>
+    </style>
+</resources>

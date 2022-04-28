@@ -1,7 +1,7 @@
 package com.example.data.di
 
 import android.content.Context
-import com.example.basearchitecture.shared.PreferencesManager
+import com.example.core.shared.PreferencesManager
 import com.example.data.BuildConfig
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
@@ -23,7 +23,7 @@ import javax.inject.Singleton
 object RetrofitModule {
     @Provides
     @Singleton
-    fun providesPreferencesManager() = PreferencesManager()
+    fun providesPreferencesManager(@ApplicationContext context: Context) = PreferencesManager(context)
 
     @Provides
     @Named("LoggerInterceptor")

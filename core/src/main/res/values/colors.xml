@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#5B0088</color>
+    <color name="colorAccentDark">#FEE426</color>
+    <color name="buttonBackgroundColorDark">#FEE426</color>
+    <color name="textColorForDark">#FFFFFF</color>
+    <color name="backgroundColorDark">#18191A</color>
+    <color name="hintColorDark">#ACAFB5</color>
+    <color name="inputBackgroundColorDark">#3A3B3C</color>
+    <color name="cardBackgroundColorDark">#242526</color>
+
+    <color name="black">#000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="shadow_color">#DDDDDD</color>
+    <color name="transparent">#00000000</color>
+
+
+</resources>

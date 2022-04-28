@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="StateLayout" />
+
+    <declare-styleable name="ds">
+
+        <attr name="InputStyle" format="reference" />
+
+        <!-- Regular text styles attributes-->
+        <attr name="Regular12Style" format="reference" />
+        <attr name="Regular14Style" format="reference" />
+        <attr name="Regular16Style" format="reference" />
+        <attr name="Regular18Style" format="reference" />
+        <attr name="Regular20Style" format="reference" />
+        <attr name="Regular22Style" format="reference" />
+
+        <!-- Medium text styles attributes-->
+        <attr name="Medium12Style" format="reference" />
+        <attr name="Medium14Style" format="reference" />
+        <attr name="Medium16Style" format="reference" />
+        <attr name="Medium18Style" format="reference" />
+        <attr name="Medium20Style" format="reference" />
+        <attr name="Medium22Style" format="reference" />
+
+        <!-- Bold text styles attributes-->
+        <attr name="Bold14Style" format="reference" />
+        <attr name="Bold16Style" format="reference" />
+        <attr name="Bold18Style" format="reference" />
+        <attr name="Bold20Style" format="reference" />
+        <attr name="Bold22Style" format="reference" />
+        <attr name="Bold24Style" format="reference" />
+        <attr name="Bold26Style" format="reference" />
+        <attr name="Bold28Style" format="reference" />
+
+
+        <!-- divider's attributes-->
+        <attr name="dividerBackground" format="reference" />
+
+        <attr name="WindowBackgroundColor" format="color" />
+        <attr name="InputBackgroundColor" format="color" />
+        <attr name="CardBackgroundColor" format="color" />
+        <attr name="ButtonBackgroundColor" format="color" />
+        <attr name="HintColor" format="color" />
+        <attr name="TextColor" format="color" />
+
+        <attr name="BottomSheetDialogStyle" format="reference" />
+
+    </declare-styleable>
+
+    <declare-styleable name="MainButton">
+        <attr name="text" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="Shadow">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="shadowRadius" format="float" />
+        <attr name="isCycle" format="boolean" />
+        <attr name="shadowColor" format="color" />
+    </declare-styleable>
+
+</resources>

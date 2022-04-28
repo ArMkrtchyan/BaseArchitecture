@@ -1,6 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
+
+        projectMinSdk = 21
+        projectTargetSdk = 32
+        projectCompileSdk = 32
+
         kotlin_version = '1.6.21'
         navigation_version = "2.3.3"
         room_version = '2.4.2'
@@ -102,6 +107,9 @@ buildscript {
                 ccp                    : 'com.hbb20:ccp:2.6.0',
                 keyboardVisibilityEvent: "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:3.0.0-RC3"
         ]
+
+        biometric = "androidx.biometric:biometric:1.1.0"
+        jna = "net.java.dev.jna:jna:5.11.0@aar"
 
         // Test dependencies
         testDependencies = [

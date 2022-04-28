@@ -1,9 +1,9 @@
 package com.example.data.dataSource
 
-import com.example.basearchitecture.shared.PreferencesManager
-import com.example.basearchitecture.shared.exceptions.BadRequestException
-import com.example.basearchitecture.shared.exceptions.InternalServerErrorException
-import com.example.basearchitecture.shared.exceptions.NetworkException
+import com.example.core.shared.PreferencesManager
+import com.example.core.shared.exceptions.BadRequestException
+import com.example.core.shared.exceptions.InternalServerErrorException
+import com.example.core.shared.exceptions.NetworkException
 import com.example.data.mappers.IMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

@@ -1,0 +1,17 @@
+<resources>
+
+    <dimen name="button_height">62dp</dimen>
+
+    <dimen name="view_size_1">16dp</dimen>
+    <dimen name="view_size_3">25dp</dimen>
+
+    <dimen name="text_size_2">15sp</dimen>
+    <dimen name="text_size_3">17sp</dimen>
+    <dimen name="text_size_4">19sp</dimen>
+    <dimen name="text_size_5">21sp</dimen>
+    <dimen name="text_size_6">23sp</dimen>
+    <dimen name="text_size_7">25sp</dimen>
+    <dimen name="text_size_8">27sp</dimen>
+    <dimen name="text_size_9">29sp</dimen>
+    <dimen name="text_size_10">31sp</dimen>
+</resources>

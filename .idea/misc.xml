@@ -13,10 +13,12 @@
         <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/app/src/main/res/layout/layout_empty.xml" value="0.3458333333333333" />
         <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/app/src/main/res/layout/layout_loading_button.xml" value="0.3458333333333333" />
         <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2265" />
+        <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/core/src/main/res/drawable/ic_back.xml" value="0.193" />
         <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/exception_catcher/src/main/res/drawable/background_button.xml" value="0.161" />
         <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/exception_catcher/src/main/res/drawable/red_rounded_background.xml" value="0.2575" />
         <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/exception_catcher/src/main/res/layout/activity_exception.xml" value="0.33" />
         <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/gemalto/src/main/res/drawable/ic_group_canceled.xml" value="0.2575" />
+        <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/gemalto/src/main/res/layout/dialog_factory.xml" value="0.3458333333333333" />
         <entry key="..\:/Users/arshak.mkrtchyan/Documents/BaseArchitecture/gemalto/src/main/res/layout/keyboard.xml" value="0.3458333333333333" />
       </map>
     </option>

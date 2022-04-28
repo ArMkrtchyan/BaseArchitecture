@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk projectCompileSdk
 
     defaultConfig {
-        minSdk 21
-        targetSdk 32
+        minSdk projectMinSdk
+        targetSdk projectTargetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -26,6 +26,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '11'
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
     }
     sourceSets {
         main {
@@ -47,10 +51,19 @@ android {
     }
 }
 
+project.ext {
+    ezioSdkDistDir = "$projectDir/libs"
+}
+
 dependencies {
 
-    releaseImplementation fileTree(dir: "$ezioSdkDistDir/release", include: ['*.jar'])
+    implementation androidXDependencies.constraintlayout
 
+    // Gemalto -> for otp generation
+    debugImplementation fileTree(dir: "$ezioSdkDistDir/debug", include: ['*.jar'])
+    releaseImplementation fileTree(dir: "$ezioSdkDistDir/release", include: ['*.jar'])
+    implementation jna
+    implementation biometric
 
 
     for (dep in coroutineDependencies) {

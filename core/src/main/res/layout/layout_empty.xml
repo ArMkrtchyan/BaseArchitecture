@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.example.core.models.EmptyModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="@{model.icon == null ? View.GONE : View.VISIBLE}"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/title"
+                style="?attr/Bold18Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_size_3"
+                android:gravity="center"
+                android:text="@{model.title}"
+                android:visibility="@{model.title == null ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon"
+                app:layout_constraintWidth_percent="0.7"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/description"
+                style="?attr/Regular16Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{model.description}"
+                android:visibility="@{model.description == null ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintWidth_percent="0.8"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_margin="@dimen/view_size_3"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_4"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/description"
+                tools:text="Button text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</layout>

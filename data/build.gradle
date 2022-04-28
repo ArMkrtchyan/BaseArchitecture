@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk projectCompileSdk
 
     defaultConfig {
-        minSdk 21
-        targetSdk 32
+        minSdk projectMinSdk
+        targetSdk projectTargetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -37,7 +37,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':domain')
-    implementation project(':app')
+    implementation project(':core')
 
     kapt kaptDependencies.room
     kapt kaptDependencies.hilt

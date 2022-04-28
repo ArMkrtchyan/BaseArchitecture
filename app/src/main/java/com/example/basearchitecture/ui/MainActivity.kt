@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.TranslateAnimation
 import androidx.lifecycle.lifecycleScope
-import com.example.basearchitecture.base.BaseActivity
 import com.example.basearchitecture.databinding.ActivityMainBinding
-import com.example.basearchitecture.shared.gemalto.FingerprintDialog
-import com.example.basearchitecture.shared.gemalto.Gemalto
-import com.example.basearchitecture.shared.gemalto.OtpTypeEnum
-import com.gemalto.idp.mobile.core.ApplicationContextHolder
+import com.example.core.base.BaseActivity
+import com.example.gemalto.FingerprintDialog
+import com.example.gemalto.Gemalto
+import com.example.gemalto.OtpTypeEnum
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +19,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         get() = ActivityMainBinding::inflate
 
     override fun ActivityMainBinding.initView() {
-        ApplicationContextHolder.setContext(applicationContext)
+        Gemalto.setApplicationContext(applicationContext)
         val gemalto = Gemalto.Builder()
             .context(this@MainActivity)
             .lifeCycleScope(lifecycleScope)

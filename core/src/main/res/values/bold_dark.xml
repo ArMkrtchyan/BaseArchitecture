@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseBoldStyleDark">
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textColor">@color/textColorForDark</item>
+    </style>
+
+    <style name="Bold14StyleDark" parent="BaseBoldStyleDark">
+        <item name="android:textSize">@dimen/text_size_3</item>
+    </style>
+
+    <style name="Bold16StyleDark" parent="BaseBoldStyleDark">
+        <item name="android:textSize">@dimen/text_size_4</item>
+    </style>
+
+    <style name="Bold18StyleDark" parent="BaseBoldStyleDark">
+        <item name="android:textSize">@dimen/text_size_5</item>
+    </style>
+
+    <style name="Bold20StyleDark" parent="BaseBoldStyleDark">
+        <item name="android:textSize">@dimen/text_size_6</item>
+    </style>
+
+    <style name="Bold22StyleDark" parent="BaseBoldStyleDark">
+        <item name="android:textSize">@dimen/text_size_7</item>
+    </style>
+
+    <style name="Bold24StyleDark" parent="BaseBoldStyleDark">
+        <item name="android:textSize">@dimen/text_size_8</item>
+    </style>
+
+    <style name="Bold26StyleDark" parent="BaseBoldStyleDark">
+        <item name="android:textSize">@dimen/text_size_9</item>
+    </style>
+
+    <style name="Bold28StyleDark" parent="BaseBoldStyleDark">
+        <item name="android:textSize">@dimen/text_size_10</item>
+    </style>
+</resources>
