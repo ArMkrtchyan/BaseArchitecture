@@ -21,7 +21,7 @@ class FingerprintDialog(context: Context, private val onCancel: () -> Unit) : Di
         mBinding = DialogFactoryBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        mBinding.cancel.setOnClickListener { onCancel.invoke() }
+        mBinding.cancel.setOnClickListener { onCancel.invoke();dismiss() }
     }
 
     override fun showDialog() {

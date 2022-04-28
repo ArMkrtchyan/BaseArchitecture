@@ -29,11 +29,12 @@
                 android:layout_marginTop="@dimen/view_size_3"
                 android:gravity="center"
                 android:padding="16dp"
+                android:text="Use Fingerprint"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_6"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Delete" />
+                />
 
             <Button
                 android:id="@+id/cancel"
@@ -41,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:text="cancel"
+                android:textColor="#FFFFFF"
                 app:layout_constraintTop_toBottomOf="@id/title" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

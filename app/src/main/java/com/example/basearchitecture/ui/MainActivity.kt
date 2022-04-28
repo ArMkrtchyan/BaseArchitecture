@@ -18,34 +18,51 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override val inflate: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
 
+    // gagik97
+    //0779
     override fun ActivityMainBinding.initView() {
         Gemalto.setApplicationContext(applicationContext)
-        val gemalto = Gemalto.Builder()
-            .context(this@MainActivity)
-            .lifeCycleScope(lifecycleScope)
-            .tokenName("Arshak")
-            .otpType(OtpTypeEnum.OTP)
-            .build()
+        var gemalto: Gemalto
         open.setOnClickListener {
+            gemalto = Gemalto.Builder()
+                .context(this@MainActivity)
+                .lifeCycleScope(lifecycleScope)
+                .tokenName(userName.text.toString())
+                .otpType(OtpTypeEnum.OTP)
+                .build()
+
             keyboard.addView(gemalto.openKeyBoard({ pin ->
-                otpTv.text = otpTv.text.toString() + pin
+
             }) { otp ->
                 Log.i("OtpTag", otp)
                 otpTv.text = otp
                 slideDown(keyboard)
+                gemalto.activateFingerPrint()
             })
             slideUp(keyboard)
         }
         useFingerprint.setOnClickListener {
+            gemalto = Gemalto.Builder()
+                .context(this@MainActivity)
+                .lifeCycleScope(lifecycleScope)
+                .tokenName(userName.text.toString())
+                .otpType(OtpTypeEnum.OTP)
+                .build()
             gemalto.useFingerPrint(FingerprintDialog(this@MainActivity) {
                 open.callOnClick()
             }) { otp ->
-
+                otpTv.text = otp
             }
         }
         close.setOnClickListener { slideDown(keyboard) }
         register.setOnClickListener {
-            gemalto.provisioning("123456", onComplete = {
+            gemalto = Gemalto.Builder()
+                .context(this@MainActivity)
+                .lifeCycleScope(lifecycleScope)
+                .tokenName(userName.text.toString())
+                .otpType(OtpTypeEnum.OTP)
+                .build()
+            gemalto.provisioning(regCode.text.toString(), onComplete = {
                 Log.d("ProvTag", "Complete")
             }, onError = { Log.d("ProvTag", "Error") })
         }

@@ -1,5 +1,6 @@
 package com.example.gemalto
 
+import android.util.Log
 import com.gemalto.idp.mobile.authentication.AuthenticationModule
 import com.gemalto.idp.mobile.authentication.mode.biometric.BiometricAuthMode
 import com.gemalto.idp.mobile.authentication.mode.biometric.BiometricAuthService
@@ -51,6 +52,7 @@ internal class FingerprintAuthModeActivator(builder: Builder) {
             authInput?.wipe()
             emit(true)
         }.catch {
+            Log.d("ActivateTag",it.stackTrace.toString())
             authInput?.wipe()
             emit(false)
         }

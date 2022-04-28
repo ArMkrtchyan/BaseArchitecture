@@ -3,6 +3,10 @@ package com.example.gemalto
 import android.os.CancellationSignal
 import android.util.Log
 import com.gemalto.idp.mobile.authentication.AuthenticationModule
+import com.gemalto.idp.mobile.authentication.mode.biofingerprint.BioFingerprintAuthInput
+import com.gemalto.idp.mobile.authentication.mode.biofingerprint.BioFingerprintAuthMode
+import com.gemalto.idp.mobile.authentication.mode.biofingerprint.BioFingerprintAuthService
+import com.gemalto.idp.mobile.authentication.mode.biofingerprint.BioFingerprintAuthenticationCallbacks
 import com.gemalto.idp.mobile.authentication.mode.biometric.BiometricAuthInput
 import com.gemalto.idp.mobile.authentication.mode.biometric.BiometricAuthMode
 import com.gemalto.idp.mobile.authentication.mode.biometric.BiometricAuthService
@@ -17,8 +21,8 @@ internal class FingerprintAuthInput(builder: Builder) {
     private val tokenName: String? = builder.tokenName
 
     private val cancellationSignal: CancellationSignal
-    private val bioFPAuthService: BiometricAuthService
-    private val bioFPAuthMode: BiometricAuthMode?
+    private val bioFPAuthService: BioFingerprintAuthService
+    private val bioFPAuthMode: BioFingerprintAuthMode?
 
     class Builder {
         var tokenName: String? = null
@@ -34,16 +38,20 @@ internal class FingerprintAuthInput(builder: Builder) {
 
     init {
         val authenticationModule = AuthenticationModule.create()
-        bioFPAuthService = BiometricAuthService.create(authenticationModule)
+        bioFPAuthService = BioFingerprintAuthService.create(authenticationModule)
         bioFPAuthMode = bioFPAuthService?.authMode
         cancellationSignal = CancellationSignal()
     }
 
-    fun getOtpWithFingerprint(onStart: () -> Unit, onSuccess: (BiometricAuthInput) -> Unit, onError: () -> Unit, onCancel: () -> Unit, onFailed: (String) -> Unit) {
+    fun getOtpWithFingerprint(onStart: () -> Unit, onSuccess: (BioFingerprintAuthInput) -> Unit, onError: () -> Unit, onCancel: () -> Unit, onFailed: (String) -> Unit) {
         try {
-            val callback = object : BiometricAuthenticationCallbacks {
-                override fun onSuccess(bioFingerprintAuthInput: BiometricAuthInput?) {
+            val callback = object : BioFingerprintAuthenticationCallbacks {
+                override fun onSuccess(bioFingerprintAuthInput: BioFingerprintAuthInput?) {
                     bioFingerprintAuthInput?.let { onSuccess.invoke(it) }
+                }
+
+                override fun onStartFPSensor() {
+                    onStart.invoke()
                 }
 
                 override fun onError(p0: IdpException?) {
@@ -69,8 +77,7 @@ internal class FingerprintAuthInput(builder: Builder) {
             }
             val oathToken: OathToken = oathService.tokenManager.getToken(tokenName)
             if (oathToken.isAuthModeActive(bioFPAuthMode)) {
-                onStart.invoke()
-                bioFPAuthService.biometricContainer.authenticateUser(oathToken, null, null, null, null, cancellationSignal, callback)
+                bioFPAuthService.bioFingerprintContainer.authenticateUser(oathToken,  cancellationSignal, callback)
             } else {
 
             }

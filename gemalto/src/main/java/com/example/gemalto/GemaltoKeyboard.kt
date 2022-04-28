@@ -61,7 +61,7 @@ class GemaltoKeyboard constructor(
             fragmentTransaction.add(R.id.frame_layout_v2_default_full_screen, mDialogFragment)
             fragmentTransaction.commit()
         } catch (e: IllegalArgumentException) {
-            e.printStackTrace();
+            e.printStackTrace()
         }
     }
 
